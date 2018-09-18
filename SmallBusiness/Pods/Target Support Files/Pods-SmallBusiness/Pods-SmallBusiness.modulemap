@@ -1,0 +1,6 @@
+framework module Pods_SmallBusiness {
+  umbrella header "Pods-SmallBusiness-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SmallBusiness' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SmallBusiness
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+  
+  pod 'DynamicColor'
+  pod 'OpalImagePicker'
+  pod 'RSKImageCropper', '~> 1.6.3'
+  pod 'PKHUD',                  '~> 5.0'
+  
+  pod 'TPKeyboardAvoiding'
+  pod 'KMPlaceholderTextView'
+  pod 'SDWebImage'
+end
