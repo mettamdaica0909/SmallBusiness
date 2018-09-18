@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomActionSheetItemView" customModule="VideoStream" customModuleProvider="target">
+            <connections>
+                <outlet property="controlLabel" destination="ilI-Rz-s0f" id="rlb-Fd-HoK"/>
+                <outlet property="view" destination="hiy-Ic-Kff" id="Ld3-co-iDY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hiy-Ic-Kff">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbH-wP-Kms" userLabel="LineView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.5"/>
+                    <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="dWO-2H-ZR7"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilI-Rz-s0f">
+                    <rect key="frame" x="188" y="25" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ilI-Rz-s0f" firstAttribute="centerY" secondItem="hiy-Ic-Kff" secondAttribute="centerY" id="OP2-U1-izd"/>
+                <constraint firstItem="ilI-Rz-s0f" firstAttribute="centerX" secondItem="hiy-Ic-Kff" secondAttribute="centerX" id="i5N-HR-nJl"/>
+                <constraint firstItem="EbH-wP-Kms" firstAttribute="leading" secondItem="hiy-Ic-Kff" secondAttribute="leading" id="p4w-py-LyJ"/>
+                <constraint firstAttribute="trailing" secondItem="EbH-wP-Kms" secondAttribute="trailing" id="rjB-Or-0Ys"/>
+                <constraint firstItem="EbH-wP-Kms" firstAttribute="top" secondItem="hiy-Ic-Kff" secondAttribute="top" id="s3F-ig-ZlL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-34.5" y="-266"/>
+        </view>
+    </objects>
+</document>

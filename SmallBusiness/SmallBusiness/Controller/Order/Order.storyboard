@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Order ListVC-->
+        <scene sceneID="9i6-Nd-dGR">
+            <objects>
+                <viewController storyboardIdentifier="OrderListVC" id="WHx-dR-f4s" customClass="OrderListVC" customModule="SmallBusiness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WKc-c8-j36">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cii-5o-F5k">
+                                <rect key="frame" x="164" y="328.5" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98823529409999999" green="0.0" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cii-5o-F5k" firstAttribute="centerY" secondItem="uOP-Gu-0p5" secondAttribute="centerY" id="IHQ-iR-9ri"/>
+                            <constraint firstItem="cii-5o-F5k" firstAttribute="centerX" secondItem="uOP-Gu-0p5" secondAttribute="centerX" id="T1Z-Va-l8T"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uOP-Gu-0p5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uZ7-CK-TKZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yi-hw-lGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="156.97151424287858"/>
+        </scene>
+    </scenes>
+</document>
