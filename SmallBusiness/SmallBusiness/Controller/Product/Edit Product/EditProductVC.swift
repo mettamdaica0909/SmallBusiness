@@ -32,7 +32,7 @@ class EditProductVC: UIViewController {
         self.txtPrice.isUserInteractionEnabled = false
         self.title = self.product.name
         self.txtName.text = self.product.name
-        self.txtPrice.text = self.product.price
+        self.txtPrice.text = self.product.price.toLongCurrencyString(isVND: true)
         if let productAvatar = self.product.avatarURL, productAvatar != "" {
             self.btnAvatar.sd_setBackgroundImage(with: URL(string: productAvatar), for: .normal, completed: nil)
         }
@@ -41,7 +41,7 @@ class EditProductVC: UIViewController {
     func fillProduct() {
         if let product = self.product {
             txtName.text = product.name
-            txtPrice.text = product.price
+            txtPrice.text = product.price.toLongCurrencyString(isVND: true)
         }
     }
     
@@ -61,8 +61,14 @@ class EditProductVC: UIViewController {
             return
         }
         
+        guard let priceNum = Double(price ?? "") else {
+            let msg = "Giá sản phẩm chưa đúng"
+            AlertService.shared.showAlert(vc: self, title: "", message: msg)
+            return
+        }
+        
         self.product?.name = name
-        self.product?.price = price
+        self.product?.price = priceNum
         if self.avatarData != nil {
             // upload product avata
             let finalRef = productPhotosRef.child((self.product?.id)!)
@@ -121,7 +127,7 @@ class EditProductVC: UIViewController {
         self.view.endEditing(true)
         
         let vc = EnterCurrencyVC()
-        vc.product = self.product
+        vc.currencyType = .productPrice(self.product)
         
         vc.didSaveBlock = { [weak self] (product) in
             if let product = product as? Product {

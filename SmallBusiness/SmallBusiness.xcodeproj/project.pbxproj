@@ -16,6 +16,13 @@
 		D9236503214CB34A008A8F06 /* CustomActionSheetItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9236501214CB34A008A8F06 /* CustomActionSheetItemView.xib */; };
 		D9236505214CB4BB008A8F06 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236504214CB4BB008A8F06 /* UIImage+Ext.swift */; };
 		D9236507214CE7A6008A8F06 /* Swift+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9236506214CE7A6008A8F06 /* Swift+Ext.swift */; };
+		D987E64C2150AFEA0056C5A2 /* CreateNewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E64B2150AFEA0056C5A2 /* CreateNewOrderVC.swift */; };
+		D987E64F2150B1D50056C5A2 /* CreateNewOrderProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E64D2150B1D50056C5A2 /* CreateNewOrderProductCell.swift */; };
+		D987E6502150B1D50056C5A2 /* CreateNewOrderProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D987E64E2150B1D50056C5A2 /* CreateNewOrderProductCell.xib */; };
+		D987E6522150BF650056C5A2 /* OrderProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987E6512150BF650056C5A2 /* OrderProduct.swift */; };
+		D99C81D1215106D70019352B /* CreateOrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C81D0215106D70019352B /* CreateOrderDetailVC.swift */; };
+		D99C81D421510B430019352B /* OrderSummaryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99C81D221510B430019352B /* OrderSummaryHeaderCell.swift */; };
+		D99C81D521510B430019352B /* OrderSummaryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99C81D321510B430019352B /* OrderSummaryHeaderCell.xib */; };
 		D9BA72CF2135151D00785A4C /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA72CE2135151D00785A4C /* MainTabController.swift */; };
 		D9BA72D2213515A600785A4C /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BA72D1213515A600785A4C /* Order.storyboard */; };
 		D9BA72D4213515DB00785A4C /* OrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BA72D3213515DB00785A4C /* OrderListVC.swift */; };
@@ -73,6 +80,13 @@
 		D9236501214CB34A008A8F06 /* CustomActionSheetItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomActionSheetItemView.xib; sourceTree = "<group>"; };
 		D9236504214CB4BB008A8F06 /* UIImage+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		D9236506214CE7A6008A8F06 /* Swift+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Swift+Ext.swift"; sourceTree = "<group>"; };
+		D987E64B2150AFEA0056C5A2 /* CreateNewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewOrderVC.swift; sourceTree = "<group>"; };
+		D987E64D2150B1D50056C5A2 /* CreateNewOrderProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewOrderProductCell.swift; sourceTree = "<group>"; };
+		D987E64E2150B1D50056C5A2 /* CreateNewOrderProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewOrderProductCell.xib; sourceTree = "<group>"; };
+		D987E6512150BF650056C5A2 /* OrderProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProduct.swift; sourceTree = "<group>"; };
+		D99C81D0215106D70019352B /* CreateOrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderDetailVC.swift; sourceTree = "<group>"; };
+		D99C81D221510B430019352B /* OrderSummaryHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummaryHeaderCell.swift; sourceTree = "<group>"; };
+		D99C81D321510B430019352B /* OrderSummaryHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderSummaryHeaderCell.xib; sourceTree = "<group>"; };
 		D9BA72CE2135151D00785A4C /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		D9BA72D1213515A600785A4C /* Order.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		D9BA72D3213515DB00785A4C /* OrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListVC.swift; sourceTree = "<group>"; };
@@ -183,11 +197,33 @@
 			path = "Custome View";
 			sourceTree = "<group>";
 		};
+		D987E6492150AFC30056C5A2 /* Order List */ = {
+			isa = PBXGroup;
+			children = (
+				D9BA72D3213515DB00785A4C /* OrderListVC.swift */,
+			);
+			path = "Order List";
+			sourceTree = "<group>";
+		};
+		D987E64A2150AFD20056C5A2 /* Create New Order */ = {
+			isa = PBXGroup;
+			children = (
+				D987E64B2150AFEA0056C5A2 /* CreateNewOrderVC.swift */,
+				D987E64D2150B1D50056C5A2 /* CreateNewOrderProductCell.swift */,
+				D987E64E2150B1D50056C5A2 /* CreateNewOrderProductCell.xib */,
+				D99C81D0215106D70019352B /* CreateOrderDetailVC.swift */,
+				D99C81D221510B430019352B /* OrderSummaryHeaderCell.swift */,
+				D99C81D321510B430019352B /* OrderSummaryHeaderCell.xib */,
+			);
+			path = "Create New Order";
+			sourceTree = "<group>";
+		};
 		D9BA72D02135157D00785A4C /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				D987E64A2150AFD20056C5A2 /* Create New Order */,
+				D987E6492150AFC30056C5A2 /* Order List */,
 				D9BA72D1213515A600785A4C /* Order.storyboard */,
-				D9BA72D3213515DB00785A4C /* OrderListVC.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -292,6 +328,7 @@
 				D9BA72DE21359BD000785A4C /* Order.swift */,
 				D9BA72E021359BF800785A4C /* Product.swift */,
 				D92364FD214CB2E9008A8F06 /* MenuViewItem.swift */,
+				D987E6512150BF650056C5A2 /* OrderProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +463,8 @@
 			files = (
 				D9BA72F1213689C700785A4C /* Home.storyboard in Resources */,
 				D9BA72FA2136968D00785A4C /* ProductListCell.xib in Resources */,
+				D99C81D521510B430019352B /* OrderSummaryHeaderCell.xib in Resources */,
+				D987E6502150B1D50056C5A2 /* CreateNewOrderProductCell.xib in Resources */,
 				D9FB94AA214F837A00878188 /* EnterCurrencyVC.xib in Resources */,
 				D9236503214CB34A008A8F06 /* CustomActionSheetItemView.xib in Resources */,
 				D9BA72D2213515A600785A4C /* Order.storyboard in Resources */,
@@ -513,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9D3B4042133DB1C007C6CFB /* LoginViewController.swift in Sources */,
+				D987E64F2150B1D50056C5A2 /* CreateNewOrderProductCell.swift in Sources */,
 				D9BA72D4213515DB00785A4C /* OrderListVC.swift in Sources */,
 				D9BA72E121359BF800785A4C /* Product.swift in Sources */,
 				D9D3B40721344FAF007C6CFB /* ConnectionManager.swift in Sources */,
@@ -524,9 +564,12 @@
 				D9D3B3DF2133D57C007C6CFB /* SmallBusiness.xcdatamodeld in Sources */,
 				D9236505214CB4BB008A8F06 /* UIImage+Ext.swift in Sources */,
 				D9BA72DF21359BD000785A4C /* Order.swift in Sources */,
+				D99C81D421510B430019352B /* OrderSummaryHeaderCell.swift in Sources */,
 				D9FB94A7214F7D7C00878188 /* EnterTextVC.swift in Sources */,
 				D9D3B40C21345712007C6CFB /* RegisterVC.swift in Sources */,
 				D9BA72CF2135151D00785A4C /* MainTabController.swift in Sources */,
+				D99C81D1215106D70019352B /* CreateOrderDetailVC.swift in Sources */,
+				D987E6522150BF650056C5A2 /* OrderProduct.swift in Sources */,
 				D9236502214CB34A008A8F06 /* CustomActionSheetItemView.swift in Sources */,
 				D9BA72DD21359B9900785A4C /* Shipper.swift in Sources */,
 				D9BA72EF213689B100785A4C /* ShipperHomeVC.swift in Sources */,
@@ -535,6 +578,7 @@
 				D9BA72D92135164200785A4C /* ShipperListVC.swift in Sources */,
 				D92364FA214CB1FD008A8F06 /* Utils.swift in Sources */,
 				D9FB94AB214F837A00878188 /* EnterCurrencyVC.swift in Sources */,
+				D987E64C2150AFEA0056C5A2 /* CreateNewOrderVC.swift in Sources */,
 				D9D3B40921345149007C6CFB /* User.swift in Sources */,
 				D9BA72F621368EB500785A4C /* ProductListVC.swift in Sources */,
 				D9D3B415213459C8007C6CFB /* AlertService.swift in Sources */,

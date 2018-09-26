@@ -14,11 +14,8 @@ class ProductListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     
-    var products = [Product]() {
-        didSet {
-            
-        }
-    }
+    var products = [Product]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "ProductListCell", bundle: Bundle.main), forCellReuseIdentifier: "ProductListCell")
@@ -50,6 +47,7 @@ class ProductListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     let product = self.products[indexPath.row]
                     if let productID = product.id {
                         productsRef.child(productID).removeValue(completionBlock: { (error, ref) in
+                            self.products = ConnectionManager.shared.getProductListWithUserID(userID: (currentUser?.uid)!)
                             self.tableView.reloadData()
                             if error != nil {
                                 AlertService.shared.showAlert(vc: self, title: "", message: "Delete product fail.")
@@ -102,5 +100,4 @@ class ProductListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         editProductVC.product = product
         self.navigationController?.pushViewController(editProductVC, animated: true)
     }
-
 }

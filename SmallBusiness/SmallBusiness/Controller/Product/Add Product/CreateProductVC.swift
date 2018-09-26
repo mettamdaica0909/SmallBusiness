@@ -27,7 +27,7 @@ class CreateProductVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let id = UUID().uuidString
-        self.product = Product(id: id, name: "", price: "", avatarURL: "", owner: (Auth.auth().currentUser?.uid)!)
+        self.product = Product(id: id, name: "", price: 0, avatarURL: "", owner: (Auth.auth().currentUser?.uid)!)
         self.btnAvatar.layer.cornerRadius = self.btnAvatar.bounds.width / 2
         NOTIFICATION_CENTER.addObserver(self, selector: #selector(self.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         NOTIFICATION_CENTER.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -81,12 +81,12 @@ class CreateProductVC: UIViewController {
             let msg = "Bạn chưa nhập giá sản phẩm"
             AlertService.shared.showAlert(vc: self, title: "", message: msg)
             return
-        } else {
-            guard let priceNum = Double(price ?? "") else {
-                let msg = "Giá sản phẩm chưa đúng"
-                AlertService.shared.showAlert(vc: self, title: "", message: msg)
-                return
-            }
+        }
+        
+        guard let priceNum = Double(price ?? "") else {
+            let msg = "Giá sản phẩm chưa đúng"
+            AlertService.shared.showAlert(vc: self, title: "", message: msg)
+            return
         }
         
         if self.avatarData == nil {
@@ -95,7 +95,7 @@ class CreateProductVC: UIViewController {
             return
         }
         self.product?.name = name
-        self.product?.price = price
+        self.product?.price = priceNum
         
         // upload product avata
         let finalRef = productPhotosRef.child((self.product?.id)!)

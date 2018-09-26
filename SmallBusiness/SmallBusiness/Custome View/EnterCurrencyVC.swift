@@ -9,6 +9,12 @@
 import UIKit
 //import Alamofire
 
+enum CurrencyType {
+    case none
+    case productPrice(Product)
+    case orderQuantity(String)
+}
+
 class EnterCurrencyVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var viewContent: UIView!
@@ -18,35 +24,75 @@ class EnterCurrencyVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lbTitle: UILabel!
     
     var didSaveBlock: ((Any) -> Void)?
-    var product: Product!
+    var viewTitle = ""
+    var content = ""
+    var placeHolder = ""
+    var currencyType: CurrencyType = .none {
+        didSet {
+            switch currencyType {
+            case .productPrice(let product):
+                self.viewTitle = "Đổi giá sản phẩm"
+                self.placeHolder = "Giá sản phẩm"
+                self.content = product.price.toLongCurrencyString(isVND: true)
+                break
+            case .orderQuantity(let defaultQuantity):
+                self.viewTitle = "Số lượng sản phẩm"
+                self.placeHolder = "Số lượng sản phẩm"
+                self.content = defaultQuantity
+            default:
+                break
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clear
         self.view.isOpaque = false
         self.txtContent.delegate = self
-        self.txtContent.placeholder = "Giá sản phẩm"
-        let updateStr = "Đổi"
-        self.lbTitle.text = "\(updateStr) \(self.txtContent.placeholder!.lowercased())"
-        self.txtContent.text = product.price
+        self.lbTitle.text = self.viewTitle
+        self.txtContent.placeholder = self.placeHolder
+        self.txtContent.text = self.content
         btnSave.setTitle("Lưu", for: .normal)
         btnCancel.setTitle("Hủy", for: .normal)
         self.txtContent.becomeFirstResponder()
     }
     
     func saveItem() {
-        guard let priceStr = self.txtContent.text?.trimmed(), !priceStr.isEmpty else {
-            let msg = "Bạn chưa nhập Giá sản phẩm"
-            AlertService.shared.showAlert(vc: self, title: "", message: msg)
-            return
+        switch currencyType {
+        case .productPrice(let product):
+            guard let priceStr = self.txtContent.text?.trimmed(), !priceStr.isEmpty else {
+                let msg = "Bạn chưa nhập Giá sản phẩm"
+                AlertService.shared.showAlert(vc: self, title: "", message: msg)
+                return
+            }
+            guard let price = Double(priceStr) else {
+                let msg = "Giá sản phẩm chưa đúng"
+                AlertService.shared.showAlert(vc: self, title: "", message: msg)
+                return
+            }
+            product.price = price
+            self.didSaveBlock?(product)
+            self.dismiss(animated: true, completion: nil)
+            break
+        case .orderQuantity(_):
+            guard let quantityStr = self.txtContent.text?.trimmed(), !quantityStr.isEmpty else {
+                let msg = "Bạn chưa nhập số lượng"
+                AlertService.shared.showAlert(vc: self, title: "", message: msg)
+                return
+            }
+
+            guard let quantity = Double(quantityStr) else {
+                let msg = "Số lượng sản phẩm chưa đúng"
+                AlertService.shared.showAlert(vc: self, title: "", message: msg)
+                return
+            }
+            self.didSaveBlock?(quantity)
+            self.dismiss(animated: true, completion: nil)
+            break
+        default:
+            break
         }
-        guard let price = Double(priceStr) else {
-            let msg = "Giá sản phẩm chưa đúng"
-            AlertService.shared.showAlert(vc: self, title: "", message: msg)
-            return
-        }
-        product.price = priceStr
-        self.didSaveBlock?(self.product)
-        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onCancelAction(_ sender: Any) {
@@ -55,8 +101,7 @@ class EnterCurrencyVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onSaveAction(_ sender: Any) {
-        self.view.endEditing(true)
-        
+        self.view.endEditing(true)        
         saveItem()
     }
     

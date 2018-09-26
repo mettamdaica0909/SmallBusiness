@@ -12,12 +12,26 @@ class Order {
     var id: String?
     var date: String?
     var shipper: String?
-    var product: Product?
-    var quantity: String?
-    var totalPrice: String?
     var shipFee: String?
-    var CustomerName: String?
-    var CustomerPhone: String?
-    var CustomerAddress: String?
-    var Status: String?
+    var customerName: String?
+    var customerPhone: String?
+    var customerAddress: String?
+    var status: String?
+    var note: String?
+    var shipperNote: String?
+    var products = [Int : OrderProduct]()
+    
+    var totalPrice: Double {
+        var totalPrice: Double = 0
+        for product in self.products.values {
+            totalPrice += product.totalPrice
+        }
+        return totalPrice
+    }
+    
+    init(id: String, date: String) {
+        self.id = id
+        self.date = date
+    }
 }
+

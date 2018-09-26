@@ -11,11 +11,11 @@ import Foundation
 class Product {
     var id: String?
     var name: String?
-    var price: String?
+    var price: Double = 0
     var avatarURL: String?
     var owner: String?
     
-    init(id: String, name: String, price: String, avatarURL: String, owner: String) {
+    init(id: String, name: String, price: Double, avatarURL: String, owner: String) {
         self.id = id
         self.name = name
         self.price = price
@@ -34,7 +34,7 @@ class Product {
     }
     
     func copy() -> Product {
-        return Product(id: self.id!, name: self.name!, price: self.price!, avatarURL: self.avatarURL!, owner: self.owner!)
+        return Product(id: self.id!, name: self.name!, price: self.price, avatarURL: self.avatarURL!, owner: self.owner!)
     }
 }
 
@@ -50,7 +50,7 @@ extension Product {
             return nil
         }
         
-        guard let price = dict?["price"] as? String else {
+        guard let price = dict?["price"] as? Double else {
             return nil
         }
         

@@ -23,7 +23,7 @@ class ProductListCell: UITableViewCell {
     var product: Product! {
         didSet {
             self.lbName.text = self.product.name
-            self.lbPrice.text = self.product.price
+            self.lbPrice.text = self.product.price.toLongCurrencyString(isVND: true)
             // set image
             if let productAvatar = self.product.avatarURL, productAvatar != "" {
                 self.avatar.sd_setImage(with: URL(string: productAvatar), completed: nil)
